@@ -7,7 +7,32 @@
     <script>
       console.log('Site Version: 1.0')
       var dir = 'https://dumpsterbuddy99.github.io/'
-      document.body.innerHTML += '<a href="' + dir + 'version.html">Latest Version</a>'
+
+      function err(msg) {
+        if (!msg) {
+          err('No message provided in error function!')
+          return
+        }
+        
+        console.error('JS Error: ' + msg)
+        alert('Unexpected JS error!\n' + msg)
+      }
+
+      function addLink(url, txt) {
+        if (!url) {
+          err('"addLink" function, "url" argument not provided!')
+          return
+        }
+
+        if (!url) {
+          err('"addLink" function, "txt" argument not provided!')
+          return
+        }
+
+        document.body.innerHTML += '<a href="' + dir + url + '.html">' + txt + '</a>'
+      }
+
+      addLink('version', 'Latest Version')
     </script>
   </body>
 </html>
